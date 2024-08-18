@@ -37,3 +37,15 @@ docker-compose up --build -d
 | ```build: ./proxy/????``` | ```build: ./proxy/domain``` |
 
 
+## Schema
+
+![Schema](./schema.png "Schema")
+
+
+
+
+
+
+
+
+

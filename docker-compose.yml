@@ -5,27 +5,29 @@ services:
     build: ./backend
     container_name: backend
     networks:
-      - default
-  
+      - private
+
   frontend:
     build: ./frontend
     container_name: frontend
     networks:
-      - default
+      - private
+
   proxy:
     build: ./proxy/http
     container_name: proxy
     ports:
       - "80:80"
       - "443:443"
+    networks:
+      - private
     depends_on:
       - backend
-      - frontend
-    networks:
-      - default
+    restart: always
 
 networks:
-  default:
+  private:
     driver: bridge
+
 
 
