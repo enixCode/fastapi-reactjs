@@ -23,6 +23,7 @@ services:
       - private
     depends_on:
       - backend
+      - frontend
     restart: always
 
 networks:
