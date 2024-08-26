@@ -10,31 +10,20 @@ You can test and deploy in seconds.
 docker-compose up --build -d
 ```
 
-## Mode
+## Mode HTTP, HTTPS or Domain
 
-**Modify the docker-compose**
+You can choose between HTTP, HTTPS or Domain.
 
-### HTTP
+*Modify the docker-compose*
 
-| before | after |
-| ------ | ----- |
-| ```build: ./proxy/????``` | ```build: ./proxy/http``` |
+**Before path:** `build: ./proxy/????`
 
+| mode | path |
+| ---- | ---- |
+| HTTP | `build: ./proxy/http` |
+| HTTPS | `build: ./proxy/https` |
+| Domain | `build: ./proxy/domain` |
 
-### HTTPS
-
-**Modify the docker-compose**
-| before | after |
-| ------ | ----- |
-| ```build: ./proxy/????``` | ```build: ./proxy/https``` |
-
-
-### Domain (not tested)
-
-**Modify the docker-compose**
-| before | after |
-| ------ | ----- |
-| ```build: ./proxy/????``` | ```build: ./proxy/domain``` |
 
 
 ## Schema
