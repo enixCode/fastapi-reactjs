@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { SetStateAction, useEffect, useState } from 'react';
 import api from './api';
 
 function App() {
@@ -6,10 +6,10 @@ function App() {
 
     useEffect(() => {
         api.get('/')
-           .then(response => {
+           .then((response: { data: { message: SetStateAction<string>; }; }) => {
                setMessage(response.data.message);
            })
-           .catch(error => {
+           .catch((error: any) => {
                console.error('Erreur lors de la récupération du message', error);
            });
     }, []);

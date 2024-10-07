@@ -1,21 +1,33 @@
-version: '3.8'
-
 services:
   backend:
     build: ./backend
     container_name: backend
     networks:
       - private
+    # Dev mode
+    # ports:
+    #   - "8000:8000"
 
   frontend:
     build: ./frontend
     container_name: frontend
     networks:
       - private
+    develop:
+      watch:
+        - action: sync
+          path: ./frontend/app/src
+          target: /app/src
+          ignore:
+            - ./frontend/app/node_modules/
+        - action: rebuild
+          path: ./frontend/app/package.json
+      # Dev mode
+      # ports:
+      #   - "8080:80"
 
   proxy:
-    build: ./proxy/http
-    container_name: proxy
+    build: ./proxy
     ports:
       - "80:80"
       - "443:443"
